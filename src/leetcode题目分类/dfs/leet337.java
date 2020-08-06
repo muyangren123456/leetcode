@@ -1,6 +1,6 @@
 package leetcode题目分类.dfs;
 
-import leetcode题目分类.treenode.treeNode;
+import leetcode题目分类.treenode.TreeNode;
 
 import java.util.*;
 
@@ -12,28 +12,28 @@ public class leet337 {
 子在同一天晚上被打劫，房屋将自动报警。
 
    */
-    Map<treeNode,Integer> f = new HashMap<treeNode,Integer>();
-    Map<treeNode,Integer> g = new HashMap<treeNode,Integer>();
+    Map<TreeNode,Integer> f = new HashMap<TreeNode,Integer>();
+    Map<TreeNode,Integer> g = new HashMap<TreeNode,Integer>();
     public static void main(String[] args) {
         leet337 leet337 = new leet337();
-        List<treeNode> nodelist = new ArrayList<treeNode>();
+        List<TreeNode> nodelist = new ArrayList<TreeNode>();
         Integer[] num = {3,2,3,null,3,null,1};
         for(Integer a : num){
             if (a != null){
-                nodelist.add(new treeNode(a));
+                nodelist.add(new TreeNode(a));
             }
             else{
-                nodelist.add(new treeNode(0));
+                nodelist.add(new TreeNode(0));
             }
         }
         System.out.println(leet337.rob(nodelist.get(0)));
     }
 
-    public int rob(treeNode root) {
+    public int rob(TreeNode root) {
         dfs(root);
         return Math.max(f.getOrDefault(root,0),g.getOrDefault(root,0));
     }
-    public void dfs(treeNode node){
+    public void dfs(TreeNode node){
         if(node == null){
             return;
         }
