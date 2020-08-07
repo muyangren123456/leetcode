@@ -27,7 +27,7 @@ public class leet105_medium {
         int n =preorder.length;
         indexMap = new HashMap<Integer, Integer>();
         for (int i = 0; i < n; i++) {
-            indexMap.put(preorder[i],i);
+            indexMap.put(inorder[i],i);
         }
         return myBuildTree(preorder,inorder,0,n-1,0,n-1);
     }
